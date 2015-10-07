@@ -1,0 +1,29 @@
+{% if story_list %}
+<ul>
+	{% for story in story_list %}
+	<li><a href="{% url 'story' story.id %}/">{{story.title}}</a>
+	</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p>No stories yet... Wanna write one?</p>
+<p>Here are the people I know about</p>
+{% if person_list %}
+<ul>
+{% for person in person_list %}
+<li>{{person.givenNames}} {{person.surname}}: {{person.birthDate}}-{{person.deathDate}}
+	{% if person.StoryParagraphs %}
+	<ul>
+	{% for parag in person.StoryParagraphs %}
+	<li>{{parag.Text}}</li>
+	{% endfor %}
+	{% endif %}
+
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+<form action="">
+
+</form>
+{% endif %}

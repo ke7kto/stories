@@ -1,0 +1,7 @@
+<h1>{{story.title}}</h1>
+{% for paragraph in story.paragraph_set.all %}
+<p>{{paragraph.text}}</p>
+{% endfor %}
+
+
+
